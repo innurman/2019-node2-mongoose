@@ -4,10 +4,11 @@ const User = require('../schemas/user');
 const { alert } = require('../modules/util');
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
   // console.log(User.find());
   //res.send('Index');
-  res.render('index.pug');
+  const result = await User.find();
+  res.render('index.pug', {result});
 });
 
 // http://127.0.0.1:3000/sample
