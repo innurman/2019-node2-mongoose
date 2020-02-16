@@ -4,7 +4,7 @@ const userSchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: false
+        unique: true
     },
     age: {
         type: Number,
