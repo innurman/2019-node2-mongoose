@@ -51,16 +51,33 @@ router.post("/user/save", async (req, res, next) => {
       next(err);
     }
   }
-  
-  
-  /*
-  user.save().then((result) => {
-    res.json(result);
-  }).catch((err) => {
-    next(err);
+});
+
+// remove() : https://mongoosejs.com/docs/api/query.html#query_Query-remove
+//    http://127.0.0.1:3000/user/delete/5e48dc2dc7427b23c029e82f
+//    http://127.0.0.1:3000/user/delete/5e48e05a63e8311eacd616ad
+router.get("/user/delete/:id", async (req, res, next) => {
+  const result = await User.remove({
+    _id: req.params.id
   });
-  */
-})
+  //res.json(result);
+  if(result.ok === 1) {
+    //res.redirect("/");
+    res.send(alert("삭제하였습니다.", "/"));
+  }
+  else res.send(alert("삭제에 실패했습니다.", "/"));
+});
+
+
+// update() : https://mongoosejs.com/docs/api/query.html#query_Query-update
+// router.get("/user/update/:id", async (req, res, next) => {
+//   const result = await User.update({
+//     _id: req.params.id
+//   }, {
+//     age: 25
+//   });
+//   //res.json(result);
+// });
 
 
 module.exports = router;
