@@ -17,4 +17,11 @@ const userSchema = new Schema({
     }
 });
 
+// unique
+//      name: {
+//          unique: true
+//      },
+//
+// -> E11000 duplicate key error collection: node.users index: name_1 dup key: { name: "bb" }
+
 module.exports = mongoose.model('User', userSchema);
