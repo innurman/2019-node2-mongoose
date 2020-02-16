@@ -4,10 +4,10 @@ const userSchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: true
+        unique: false
     },
     age: {
-        type: Number
+        type: Number,
         required: true
     },
     comment: String,
@@ -17,4 +17,4 @@ const userSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('User', userSchemar);
+module.exports = mongoose.model('User', userSchema);

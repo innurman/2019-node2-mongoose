@@ -17,4 +17,22 @@ const commentSchema = new Schema({
     }
 });
 
-module.exports = mongoose,model('Comment', commentSchema);
+module.exports = mongoose.model('Comment', commentSchema);
+
+
+/*
+user = {
+  _id: "ksadjfksjdfkj23142134",
+  name: "È«±æµ¿",
+  age: 25
+}
+
+comment = {
+  comment: "¾È³çÇÏ¼¼¿ä.",
+  writer: {
+    _id: "ksadjfksjdfkj23142134",
+    name: "È«±æµ¿",
+    age: 25
+  }
+}
+*/

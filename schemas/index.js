@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 module.exports = () => {
     // https://www.npmjs.com/package/mongoose
-    // await mongoose.connect('mongodb://localhost/my_database', {
-    //   useNewUrlParser: true,
-    //   useUnifiedTopology: true
-    // });
     const connect = () => {
         mongoose.connect('mongodb://localhost:15000/node', {
 
@@ -14,7 +10,7 @@ module.exports = () => {
         });
     }
     connect();
-    mongoose.connections.concat('error', (err) => {
+    mongoose.connection.on('error', (err) => {
         console.log(err);
     });
     mongoose.connection.on('disconnected', () => {
@@ -23,5 +19,5 @@ module.exports = () => {
     });
 
     require('./user');    // user.js -> userSchemar
-    require('./comment'); // comment.js -> commentSchema
+//    require('./comment'); // comment.js -> commentSchema
 }
